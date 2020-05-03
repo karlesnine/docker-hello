@@ -20,9 +20,6 @@ jobs:
           token: ${{ github.token }}
           clean: 'true'
           fetch-depth: '1'
-      - name: Fetch_all_tag
-        run: |
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - name: Last Tag
         run: | 
           echo "::set-env name=LAST_TAG::$(git describe --tags `git rev-list --tags --max-count=1`)"
